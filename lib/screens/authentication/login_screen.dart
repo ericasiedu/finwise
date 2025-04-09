@@ -1,3 +1,4 @@
+import 'package:finwise/screens/authentication/fingerprint_screen.dart';
 import 'package:finwise/screens/authentication/forgotten_screen.dart';
 import 'package:finwise/screens/authentication/sign_up_screen.dart';
 import 'package:finwise/screens/mains/main_screen.dart';
@@ -101,11 +102,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: 'Use ',
                         style: TextStyle(color: Colors.black),
                       ),
-                      TextSpan(
-                        text: 'Fingerprint',
-                        style: TextStyle(
-                          color: oceanBlue,
-                          fontWeight: FontWeight.bold,
+                      WidgetSpan(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FingerprintScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Fingerprint',
+                            style: TextStyle(
+                              color: oceanBlue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                       TextSpan(
