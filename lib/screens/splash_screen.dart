@@ -1,6 +1,7 @@
 import 'package:finwise/screens/onboarding_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,6 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: primaryColor, // Set the status bar color
+        statusBarIconBrightness:
+            Brightness.light, // Light icons for dark status bar
+      ),
+    ); 
+    
     return Scaffold(
       backgroundColor: primaryColor,
       body: Center(
