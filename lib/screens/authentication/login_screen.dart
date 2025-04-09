@@ -1,3 +1,5 @@
+import 'package:finwise/screens/authentication/forgotten_screen.dart';
+import 'package:finwise/screens/authentication/sign_up_screen.dart';
 import 'package:finwise/screens/mains/main_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
@@ -46,7 +48,11 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: 15),
           Text('Password'),
           SizedBox(height: 5),
-          CustomInput(placeHolderText: '\u{25CF}\u{25CF}\u{25CF}\u{25CF}\u{25CF}\u{25CF}\u{25CF}', isPassword: true),
+          CustomInput(
+            placeHolderText:
+                '\u{25CF}\u{25CF}\u{25CF}\u{25CF}\u{25CF}\u{25CF}\u{25CF}',
+            isPassword: true,
+          ),
           SizedBox(height: 40),
           Center(
             child: Column(
@@ -63,7 +69,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 // SizedBox(height: 2),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgottenScreen(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(fontWeight: FontWeight.w500),
@@ -73,7 +86,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 PrimaryButton(
                   title: 'Sign Up',
                   color: lightGreen,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    );
+                  },
                 ),
                 SizedBox(height: 10),
                 RichText(
@@ -130,7 +148,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       WidgetSpan(
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUpScreen(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'Sign Up',
                             style: TextStyle(

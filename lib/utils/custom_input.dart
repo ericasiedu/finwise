@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class CustomInput extends StatefulWidget {
   final String placeHolderText;
   final bool isPassword;
+  final bool isNumber;
   const CustomInput({
     super.key,
     required this.placeHolderText,
     this.isPassword = false,
+    this.isNumber = false
   });
 
   @override
@@ -27,6 +29,7 @@ class _CustomInputState extends State<CustomInput> {
   Widget build(BuildContext context) {
     return TextField(
       obscureText: widget.isPassword ? _obscureText : false,
+      keyboardType: widget.isNumber ? TextInputType.number : TextInputType.text,
       decoration: InputDecoration(
         filled: true,
         fillColor: lightGreen,

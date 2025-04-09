@@ -33,7 +33,7 @@ class ContainerWrapper extends StatelessWidget {
                   bottom: 0,
                   child: Container(
                     width: double.infinity,
-                    height: 60,
+                    height: 50,
                     decoration: BoxDecoration(
                       color: lightGreenBg,
                       borderRadius: BorderRadius.only(
