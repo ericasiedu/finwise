@@ -1,3 +1,4 @@
+import 'package:finwise/screens/mains/main_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
 import 'package:finwise/utils/primary_button.dart';
@@ -39,7 +40,12 @@ class _FingerprintScreenState extends State<FingerprintScreen> {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainScreen()),
+                );
+              },
               child: Container(
                 width: 195,
                 height: 195,
@@ -73,8 +79,8 @@ class _FingerprintScreenState extends State<FingerprintScreen> {
               onTap: () {},
               width: double.infinity,
             ),
-            SizedBox(height: 30,),
-            Text('Or prefer use pin code?')
+            SizedBox(height: 30),
+            Text('Or prefer use pin code?'),
           ],
         ),
       ),
