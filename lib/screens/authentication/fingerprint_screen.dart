@@ -36,7 +36,8 @@ class _FingerprintScreenState extends State<FingerprintScreen> {
           const SizedBox(height: 100),
         ],
       ),
-      bodyChild: Center(
+      bodyChild: SingleChildScrollView(
+        child: Center(
         child: Column(
           children: [
             GestureDetector(
@@ -84,6 +85,7 @@ class _FingerprintScreenState extends State<FingerprintScreen> {
           ],
         ),
       ),
+      )
     );
   }
 }

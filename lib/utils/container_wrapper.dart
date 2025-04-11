@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:finwise/utils/color.dart';
+import 'package:flutter/services.dart';
 
 class ContainerWrapper extends StatelessWidget {
   final Widget headerChild;
@@ -32,6 +33,12 @@ class ContainerWrapper extends StatelessWidget {
                 centerTitle: centerTitle,
                 automaticallyImplyLeading: leading == null,
                 leading: leading,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: primaryColor, // Optional: match app bar color
+                  statusBarIconBrightness:
+                      Brightness.light, // For Android (light icons)
+                  statusBarBrightness: Brightness.dark, // For iOS (dark icons)
+                ),
                 title:
                     centerTitle
                         ? Text(
@@ -42,7 +49,7 @@ class ContainerWrapper extends StatelessWidget {
                           ),
                         )
                         : Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 10, top: 20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
@@ -62,12 +69,12 @@ class ContainerWrapper extends StatelessWidget {
                         ),
                 actions: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 22),
+                    padding: const EdgeInsets.only(right: 22, top: 20),
                     child: GestureDetector(
                       onTap: onNotificationTap ?? () {},
                       child: const CircleAvatar(
                         backgroundColor: lightGreen,
-                        child: Icon(Icons.notifications),
+                        child: Icon(Icons.notifications_outlined),
                       ),
                     ),
                   ),
@@ -103,11 +110,8 @@ class ContainerWrapper extends StatelessWidget {
               ],
             ),
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 35,
-                  vertical: 22,
-                ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 22),
                 child: bodyChild,
               ),
             ),

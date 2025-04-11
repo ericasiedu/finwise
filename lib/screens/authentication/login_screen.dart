@@ -40,7 +40,8 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: 100),
         ],
       ),
-      bodyChild: Column(
+      bodyChild: SingleChildScrollView(
+        child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Username Or Email'),
@@ -186,6 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ],
       ),
+      )
     );
   }
 }

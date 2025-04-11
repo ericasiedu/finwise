@@ -38,7 +38,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           SizedBox(height: 100),
         ],
       ),
-      bodyChild: Column(
+      bodyChild: SingleChildScrollView(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Full Name'),
@@ -170,6 +171,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           SizedBox(height: 30),
         ],
       ),
+      )
     );
   }
 }

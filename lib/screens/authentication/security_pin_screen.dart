@@ -61,16 +61,17 @@ class _SecurityPinScreenState extends State<SecurityPinScreen> {
           const SizedBox(height: 100),
         ],
       ),
-      bodyChild: Column(
+      bodyChild: SingleChildScrollView(
+        child: Column(
         children: [
-          const Center(
+           Center(
             child: Text(
               'Enter Security Pin',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(height: 20),
+           SizedBox(height: 20),
           FittedBox(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -174,6 +175,7 @@ class _SecurityPinScreenState extends State<SecurityPinScreen> {
           ),
         ],
       ),
+      )
     );
   }
 }

@@ -37,7 +37,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
           const SizedBox(height: 100),
         ],
       ),
-      bodyChild: Column(
+      bodyChild: SingleChildScrollView(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('New Password'),
@@ -69,6 +70,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
           ),
         ],
       ),
+      )
     );
   }
 }
