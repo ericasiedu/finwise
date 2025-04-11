@@ -1,4 +1,4 @@
-import 'package:finwise/screens/mains/analysis_screen.dart';
+import 'package:finwise/screens/mains/Analysis/analysis_screen.dart';
 import 'package:finwise/screens/mains/category_screen.dart';
 import 'package:finwise/screens/mains/home_screen.dart';
 import 'package:finwise/screens/mains/profile_screen.dart';

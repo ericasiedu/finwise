@@ -30,6 +30,7 @@ class ContainerWrapper extends StatelessWidget {
           showAppBar
               ? AppBar(
                 backgroundColor: primaryColor,
+                iconTheme: IconThemeData(color: Colors.white),
                 centerTitle: centerTitle,
                 automaticallyImplyLeading: leading == null,
                 leading: leading,
@@ -41,11 +42,14 @@ class ContainerWrapper extends StatelessWidget {
                 ),
                 title:
                     centerTitle
-                        ? Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
+                        ? Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Text(
+                            title,
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         )
                         : Padding(
