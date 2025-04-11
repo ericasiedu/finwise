@@ -1,3 +1,4 @@
+import 'package:finwise/models/daily_data.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
 import 'package:finwise/utils/progress_bar.dart';
@@ -192,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Row(
                                     children: [
                                       Image.asset('assets/images/Food.png'),
-                                      SizedBox(width: 10),
+                                      SizedBox(width: 15),
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -241,12 +242,78 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ];
           },
-          body: TabBarView(
-            children: [
-              SizedBox(child: Text('daily')),
-              SizedBox(child: Center(child: Text('weekly'))),
-              SizedBox(child: Center(child: Text('monthly'))),
-            ],
+          body: SizedBox(
+            // height: MediaQuery.of(context).size.height * 1,
+            child: TabBarView(
+              children: [
+                Expanded(
+                  child: ListView.separated(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    itemBuilder: (context, index) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 57,
+                            height: 53,
+                            decoration: BoxDecoration(
+                              color: dailyItems[index].bgColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                dailyItems[index].image,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  dailyItems[index].name,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  dailyItems[index].time,
+                                  style: TextStyle(
+                                    color: oceanBlue,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(width: 1, height: 30, color: primaryColor),
+                          SizedBox(
+                            child: Text(
+                              dailyItems[index].amount,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Container(width: 1, height: 30, color: primaryColor),
+                          SizedBox(
+                            child: Text(dailyItems[index].AmountPurpose, style: TextStyle(
+                                    color: oceanBlue,
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                          ),
+                        ],
+                      );
+                    },
+                    separatorBuilder: (_, __) => SizedBox(height: 25),
+                    itemCount: dailyItems.length,
+                  ),
+                ),
+
+                SizedBox(child: Center(child: Text('weekly'))),
+                SizedBox(child: Center(child: Text('monthly'))),
+              ],
+            ),
           ),
         ),
       ),

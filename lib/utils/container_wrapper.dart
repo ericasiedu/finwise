@@ -111,7 +111,7 @@ class ContainerWrapper extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 22),
+                padding: EdgeInsets.symmetric(horizontal: 35),
                 child: bodyChild,
               ),
             ),
