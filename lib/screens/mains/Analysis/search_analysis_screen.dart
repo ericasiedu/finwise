@@ -14,6 +14,9 @@ class SearchAnalysisScreen extends StatefulWidget {
 }
 
 class _SearchAnalysisScreenState extends State<SearchAnalysisScreen> {
+final List<String> _options = ['Income', 'Expenses'];
+    String? _selectedOption = 'Expenses';
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -26,10 +29,6 @@ class _SearchAnalysisScreenState extends State<SearchAnalysisScreen> {
 
     List<String> items = ['option 1', 'option 2', 'option 3'];
     String? selectedValue;
-
-    String? _selectedOption; // Can be null initially
-
-    final List<String> _options = ['Income', 'Expenses'];
 
     TextEditingController _dateController = TextEditingController();
     DateTime? _selectedDate;
@@ -136,10 +135,11 @@ class _SearchAnalysisScreenState extends State<SearchAnalysisScreen> {
                             _selectedOption = value;
                           });
                         },
-                        activeColor: primaryColor,
+                        activeColor: primaryColor, // Use a distinct color
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                       Text(option),
-                      SizedBox(width: 8), // Add spacing between options
+                      SizedBox(width: 8),
                     ],
                   );
                 }).toList(),
@@ -147,8 +147,11 @@ class _SearchAnalysisScreenState extends State<SearchAnalysisScreen> {
           SizedBox(height: 30),
           Center(
             child: PrimaryButton(
-            title: 'Search', color: primaryColor, onTap: () {}),
-          )
+              title: 'Search',
+              color: primaryColor,
+              onTap: () {},
+            ),
+          ),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:finwise/screens/mains/Analysis/calendar_screen.dart';
 import 'package:finwise/screens/mains/Analysis/search_analysis_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
@@ -155,7 +156,14 @@ class AnalysisScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        calendarSearch: () {},
+                        calendarSearch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CalendarScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 20),
                       Text('My Target', style: TextStyle(fontSize: 18)),
@@ -274,8 +282,22 @@ class AnalysisScreen extends StatelessWidget {
                       ExpenditureCard(
                         income: '11,420.00',
                         expenses: '20,000.20',
-                        search: () {},
-                        calendarSearch: () {},
+                        search: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SearchAnalysisScreen(),
+                            ),
+                          );
+                        },
+                        calendarSearch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CalendarScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 20),
                       Text('My Target', style: TextStyle(fontSize: 18)),
@@ -290,8 +312,22 @@ class AnalysisScreen extends StatelessWidget {
                       ExpenditureCard(
                         income: '47,200.00',
                         expenses: '35,510.20',
-                        search: () {},
-                        calendarSearch: () {},
+                        search: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SearchAnalysisScreen(),
+                            ),
+                          );
+                        },
+                        calendarSearch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CalendarScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 20),
                       Text('My Target', style: TextStyle(fontSize: 18)),
@@ -306,8 +342,22 @@ class AnalysisScreen extends StatelessWidget {
                       ExpenditureCard(
                         income: '430,560.00',
                         expenses: '320,300.00',
-                        search: () {},
-                        calendarSearch: () {},
+                        search: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SearchAnalysisScreen(),
+                            ),
+                          );
+                        },
+                        calendarSearch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CalendarScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 20),
                       Text('My Target', style: TextStyle(fontSize: 18)),

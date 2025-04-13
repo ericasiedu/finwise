@@ -64,11 +64,11 @@ class _MainScreenState extends State<MainScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildRoundedNavItem(Icons.home, 0),
-                _buildRoundedNavItem(Icons.analytics, 1),
-                _buildRoundedNavItem(Icons.business, 2),
+                _buildRoundedNavItem(Icons.home_outlined, 0),
+                _buildRoundedNavItem(Icons.analytics_outlined, 1),
+                _buildRoundedNavItem(Icons.business_outlined, 2),
                 _buildRoundedNavItem(Icons.category_outlined, 3),
-                _buildRoundedNavItem(Icons.person, 4),
+                _buildRoundedNavItem(Icons.person_2_outlined, 4),
               ],
             ),
           ),

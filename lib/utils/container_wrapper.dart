@@ -30,6 +30,7 @@ class ContainerWrapper extends StatelessWidget {
           showAppBar
               ? AppBar(
                 backgroundColor: primaryColor,
+                 scrolledUnderElevation: 0,
                 iconTheme: IconThemeData(color: Colors.white),
                 centerTitle: centerTitle,
                 automaticallyImplyLeading: leading == null,
