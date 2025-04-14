@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:finwise/utils/color.dart';
+
 class DailyData {
   final String name;
   final String time;
@@ -14,7 +16,7 @@ class DailyData {
     required this.amount,
     required this.AmountPurpose,
     required this.bgColor,
-    required this.image
+    required this.image,
   });
 }
 
@@ -25,7 +27,7 @@ List<DailyData> dailyItems = [
     amount: 'Monthly',
     AmountPurpose: '\u20B54.000,00',
     bgColor: Color(0xFF6DB6FE),
-    image: 'assets/images/salary-white.png'
+    image: 'assets/images/salary-white.png',
   ),
   DailyData(
     name: 'Groceries',
@@ -33,7 +35,7 @@ List<DailyData> dailyItems = [
     amount: 'Pantry',
     AmountPurpose: '\u20B5-100,00',
     bgColor: Color(0xFF3299FF),
-    image: 'assets/images/groceries.png'
+    image: 'assets/images/groceries.png',
   ),
   DailyData(
     name: 'Rent',
@@ -41,6 +43,44 @@ List<DailyData> dailyItems = [
     amount: 'Rent',
     AmountPurpose: '\u20B5-674,40',
     bgColor: Color(0xFF0068FF),
-    image: 'assets/images/rent.png'
+    image: 'assets/images/rent.png',
+  ),
+];
+
+List<DailyData> marchItems = [
+  DailyData(
+    name: 'Food',
+    time: '8:30 - April 15',
+    amount: 'Rent',
+    AmountPurpose: '\u20B5-674,40',
+    bgColor: blueBtnColor,
+    image: 'assets/images/food-white.png',
+  ),
+  DailyData(
+    name: 'Transport',
+    time: '8:30 - April 15',
+    amount: 'Dinner',
+    AmountPurpose: '\u20B5-674,40',
+    bgColor: lightBlue,
+    image: 'assets/images/transport.png',
+  ),
+];
+
+List<DailyData> februaryItems = [
+  DailyData(
+    name: 'Food',
+    time: '8:30 - April 15',
+    amount: 'Rent',
+    AmountPurpose: '\u20B5-674,40',
+    bgColor: blueBtnColor,
+    image: 'assets/images/food-white.png',
+  ),
+  DailyData(
+    name: 'Transport',
+    time: '8:30 - April 15',
+    amount: 'Dinner',
+    AmountPurpose: '\u20B5-674,40',
+    bgColor: lightBlue,
+    image: 'assets/images/transport.png',
   ),
 ];
