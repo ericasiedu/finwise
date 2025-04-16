@@ -1,3 +1,4 @@
+import 'package:finwise/screens/mains/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ class ContainerWrapper extends StatelessWidget {
   final bool showAppBar;
   final VoidCallback? onNotificationTap;
   final Widget? leading;
+  final bool isProfilePage;
 
   const ContainerWrapper({
     super.key,
@@ -20,6 +22,7 @@ class ContainerWrapper extends StatelessWidget {
     this.title = '',
     this.onNotificationTap,
     this.leading,
+    this.isProfilePage = false,
   });
 
   @override
@@ -30,16 +33,15 @@ class ContainerWrapper extends StatelessWidget {
           showAppBar
               ? AppBar(
                 backgroundColor: primaryColor,
-                 scrolledUnderElevation: 0,
+                scrolledUnderElevation: 0,
                 iconTheme: IconThemeData(color: Colors.white),
                 centerTitle: centerTitle,
                 automaticallyImplyLeading: leading == null,
                 leading: leading,
                 systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: primaryColor, // Optional: match app bar color
-                  statusBarIconBrightness:
-                      Brightness.light, // For Android (light icons)
-                  statusBarBrightness: Brightness.dark, // For iOS (dark icons)
+                  statusBarColor: primaryColor,
+                  statusBarIconBrightness: Brightness.light,
+                  statusBarBrightness: Brightness.dark,
                 ),
                 title:
                     centerTitle
@@ -76,7 +78,14 @@ class ContainerWrapper extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 22, top: 20),
                     child: GestureDetector(
-                      onTap: onNotificationTap ?? () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NotificationScreen(),
+                          ),
+                        );
+                      },
                       child: const CircleAvatar(
                         backgroundColor: lightGreen,
                         child: Icon(Icons.notifications_outlined),
@@ -91,18 +100,21 @@ class ContainerWrapper extends StatelessWidget {
           children: [
             Stack(
               children: [
+                // Primary color container (goes to back)
                 Container(
                   width: double.infinity,
                   color: primaryColor,
                   padding: const EdgeInsets.all(22),
                   child: headerChild,
                 ),
+
+                // Light green background with rounded top (middle layer)
                 Positioned(
                   left: 0,
                   right: 0,
                   bottom: 0,
                   child: Container(
-                    height: 50,
+                    height: isProfilePage ? 120 : 50,
                     decoration: const BoxDecoration(
                       color: lightGreenBg,
                       borderRadius: BorderRadius.only(
@@ -112,6 +124,42 @@ class ContainerWrapper extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                // Light blue circle avatar (top layer)
+                if (isProfilePage)
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0, // Position at the very bottom of the Stack
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 117,
+                            width: 117,
+                            decoration: BoxDecoration(shape: BoxShape.circle),
+                            child: Image.asset(
+                              'assets/images/profile-pic.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Eric Asiedu',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          // Text('Select an Image')
+                         GestureDetector(
+                          onTap: (){},
+                          child: Text('Select an Image'),
+                         )
+                        ],
+                      ),
+                    ),
+                  ),
               ],
             ),
             Expanded(

@@ -11,7 +11,8 @@ class CategoryEntertainScreen extends StatefulWidget {
   const CategoryEntertainScreen({super.key});
 
   @override
-  State<CategoryEntertainScreen> createState() => _CategoryEntertainScreenState();
+  State<CategoryEntertainScreen> createState() =>
+      _CategoryEntertainScreenState();
 }
 
 class _CategoryEntertainScreenState extends State<CategoryEntertainScreen> {
@@ -24,7 +25,7 @@ class _CategoryEntertainScreenState extends State<CategoryEntertainScreen> {
             Brightness.light, // Light icons for dark status bar
       ),
     );
-    
+
     return ContainerWrapper(
       showAppBar: true,
       title: 'Entertainment',
@@ -114,7 +115,7 @@ class _CategoryEntertainScreenState extends State<CategoryEntertainScreen> {
             SizedBox(height: 70),
           ],
         ),
-      ), 
+      ),
       bodyChild: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,6 +216,7 @@ class _CategoryEntertainScreenState extends State<CategoryEntertainScreen> {
             SizedBox(height: 20),
           ],
         ),
-      ),);
+      ),
+    );
   }
 }

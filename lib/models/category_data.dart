@@ -109,3 +109,24 @@ List<CategoryData> savingsItems = [
   CategoryData(title: 'Wedding', image: 'assets/images/wedding.png'),
 ];
 
+
+
+List<Category> travelItems = [
+  Category(title: 'Travel Deposit', time: '18:27 - April 20', amount: '-25.00'),
+  Category(title: 'Travel Deposit', time: '18:27 - April 20', amount: '-205.00'),
+];
+
+List<Category> houseItems = [
+  Category(title: 'House Deposit', time: '18:27 - April 20', amount: '-25.00'),
+  Category(title: 'House Deposit', time: '18:27 - April 20', amount: '-205.00'),
+];
+
+List<Category> carItems = [
+  Category(title: 'Car Deposit', time: '18:27 - April 20', amount: '-25.00'),
+  Category(title: 'Car Deposit', time: '18:27 - April 20', amount: '-205.00'),
+];
+
+List<Category> weddingItems = [
+  Category(title: 'Wedding Deposit', time: '18:27 - April 20', amount: '-25.00'),
+  Category(title: 'Wedding Deposit', time: '18:27 - April 20', amount: '-205.00'),
+];

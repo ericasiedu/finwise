@@ -9,6 +9,8 @@ import 'package:finwise/screens/mains/Category/Transport/category_transport_scre
 import 'package:finwise/screens/mains/Category/Food/food_category_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
+import 'package:finwise/utils/custom_input.dart';
+import 'package:finwise/utils/primary_button.dart';
 import 'package:finwise/utils/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,7 +31,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
     CategoryRentScreen(),
     CategoryGiftScreen(),
     CategorySavingsScreen(),
-    CategoryEntertainScreen()
+    CategoryEntertainScreen(),
+    SizedBox(),
   ];
 
   @override
@@ -41,6 +44,50 @@ class _CategoryScreenState extends State<CategoryScreen> {
             Brightness.light, // Light icons for dark status bar
       ),
     );
+
+    void showCustomDailogBox(BuildContext context) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.4,
+              padding: EdgeInsets.all(20),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'New Category',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 15),
+                  CustomInput(placeHolderText: 'Enter Category'),
+                  SizedBox(height: 10),
+                  PrimaryButton(
+                    title: 'Save',
+                    color: primaryColor,
+                    onTap: () {},
+                  ),
+                  SizedBox(height: 10),
+                  PrimaryButton(
+                    title: 'Cancel',
+                    color: lightGreen,
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+              )
+            ),
+          );
+        },
+      );
+    }
 
     return ContainerWrapper(
       showAppBar: true,
@@ -147,11 +194,16 @@ class _CategoryScreenState extends State<CategoryScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                   if (index != 8 && index != -1) {
+                    if (index != 8 && index != -1) {
                       Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => categories[index]));
-                   }
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => categories[index],
+                        ),
+                      );
+                    } else if (index == 8) {
+                      showCustomDailogBox(context);
+                    }
                   },
                   child: Container(
                     width: 105,
