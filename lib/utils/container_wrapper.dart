@@ -12,6 +12,8 @@ class ContainerWrapper extends StatelessWidget {
   final VoidCallback? onNotificationTap;
   final Widget? leading;
   final bool isProfilePage;
+  final bool isEdit;
+  final VoidCallback? imageTap;
 
   const ContainerWrapper({
     super.key,
@@ -23,6 +25,8 @@ class ContainerWrapper extends StatelessWidget {
     this.onNotificationTap,
     this.leading,
     this.isProfilePage = false,
+    this.isEdit = false,
+    this.imageTap
   });
 
   @override
@@ -130,20 +134,46 @@ class ContainerWrapper extends StatelessWidget {
                   Positioned(
                     left: 0,
                     right: 0,
-                    bottom: 0, // Position at the very bottom of the Stack
+                    bottom: 10, // Position at the very bottom of the Stack
                     child: Center(
                       child: Column(
                         children: [
-                          Container(
-                            height: 117,
-                            width: 117,
-                            decoration: BoxDecoration(shape: BoxShape.circle),
-                            child: Image.asset(
-                              'assets/images/profile-pic.png',
-                              fit: BoxFit.cover,
-                            ),
+                          Stack(
+                            alignment: Alignment.bottomRight,
+                            children: [
+                              Container(
+                                height: 117,
+                                width: 117,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    'assets/images/profile-pic.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              if (isEdit)
+                                GestureDetector(
+                                  onTap: imageTap,
+                                  child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: primaryColor,
+                                  ),
+                                  child: Icon(
+                                    Icons.camera_alt,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                )
+                            ],
                           ),
-                          SizedBox(height: 5),
+                          SizedBox(height: 20),
                           Text(
                             'Eric Asiedu',
                             style: TextStyle(
@@ -151,11 +181,6 @@ class ContainerWrapper extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          // Text('Select an Image')
-                         GestureDetector(
-                          onTap: (){},
-                          child: Text('Select an Image'),
-                         )
                         ],
                       ),
                     ),

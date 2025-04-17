@@ -1,5 +1,7 @@
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
+import 'package:finwise/utils/custom_input.dart';
+import 'package:finwise/utils/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,7 +13,9 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
-  
+  bool isSwitch = true;
+  bool isThemeSwitch = false;
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -21,14 +25,87 @@ class _EditScreenState extends State<EditScreen> {
             Brightness.light, // Light icons for dark status bar
       ),
     );
-    
+
     return ContainerWrapper(
       showAppBar: true,
       title: 'Edit Profile',
       centerTitle: true,
-      headerChild: Column(children: [],), 
+      isEdit: true,
+      isProfilePage: true,
+      headerChild: Column(
+        children: [SizedBox(height: MediaQuery.of(context).size.height * 0.2)],
+      ),
       bodyChild: SingleChildScrollView(
-        child: Column(children: [],),
-      ));
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20),
+            Text(
+              'Account Settings',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text('Username'),
+            SizedBox(height: 5),
+            CustomInput(placeHolderText: 'jon doe'),
+            SizedBox(height: 15),
+            Text('Phone'),
+            SizedBox(height: 5),
+            CustomInput(placeHolderText: '+233 1234567'),
+            SizedBox(height: 15),
+            Text('Email Address'),
+            SizedBox(height: 5),
+            CustomInput(placeHolderText: 'example@example.com'),
+            SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Push Notifications'),
+                Switch(
+                  value: isSwitch,
+                  activeColor: Colors.white,
+                  activeTrackColor: primaryColor,
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: inActivePrimaryColor,
+                  onChanged: (bool value) {
+                    setState(() {
+                      isSwitch = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Turn dark Theme'),
+                Switch(
+                  value: isThemeSwitch,
+                  activeColor: Colors.white,
+                  activeTrackColor: primaryColor,
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: inActivePrimaryColor,
+                  onChanged: (bool value) {
+                    setState(() {
+                      isThemeSwitch = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 22),
+            Center(
+              child: PrimaryButton(
+                title: 'Update Profile',
+                color: primaryColor,
+                onTap: () {},
+              ),
+            ),
+            SizedBox(height: 20,)
+          ],
+        ),
+      ),
+    );
   }
 }
