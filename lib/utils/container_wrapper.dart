@@ -14,6 +14,8 @@ class ContainerWrapper extends StatelessWidget {
   final bool isProfilePage;
   final bool isEdit;
   final VoidCallback? imageTap;
+  final ImageProvider? profileImage;
+  final String? profileImageAssetPath;
 
   const ContainerWrapper({
     super.key,
@@ -26,7 +28,9 @@ class ContainerWrapper extends StatelessWidget {
     this.leading,
     this.isProfilePage = false,
     this.isEdit = false,
-    this.imageTap
+    this.imageTap,
+    this.profileImage,
+    this.profileImageAssetPath = 'assets/images/profile-pic.png',
   });
 
   @override
@@ -148,29 +152,34 @@ class ContainerWrapper extends StatelessWidget {
                                   shape: BoxShape.circle,
                                 ),
                                 child: ClipOval(
-                                  child: Image.asset(
-                                    'assets/images/profile-pic.png',
-                                    fit: BoxFit.cover,
-                                  ),
+                                  child:
+                                      profileImage != null
+                                          ? Image(image: profileImage!,width: 117,height: 117,fit: BoxFit.cover,)
+                                          : Image.asset(
+                                            profileImageAssetPath!,
+                                            width: 117,
+                                            height: 117,
+                                            fit: BoxFit.cover,
+                                          ),
                                 ),
                               ),
                               if (isEdit)
                                 GestureDetector(
                                   onTap: imageTap,
                                   child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: primaryColor,
-                                  ),
-                                  child: Icon(
-                                    Icons.camera_alt,
-                                    size: 15,
-                                    color: Colors.white,
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: primaryColor,
+                                    ),
+                                    child: Icon(
+                                      Icons.camera_alt,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                                )
                             ],
                           ),
                           SizedBox(height: 20),
