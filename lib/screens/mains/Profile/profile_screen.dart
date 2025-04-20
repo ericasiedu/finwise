@@ -3,7 +3,7 @@ import 'package:finwise/screens/authentication/login_screen.dart';
 import 'package:finwise/screens/mains/Profile/edit_screen.dart';
 import 'package:finwise/screens/mains/Profile/help_screen.dart';
 import 'package:finwise/screens/mains/Profile/Security/security_screen.dart';
-import 'package:finwise/screens/mains/Profile/settings_screen.dart';
+import 'package:finwise/screens/mains/Profile/Settings/settings_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
 import 'package:flutter/material.dart';
