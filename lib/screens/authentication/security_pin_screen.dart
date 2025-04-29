@@ -63,119 +63,127 @@ class _SecurityPinScreenState extends State<SecurityPinScreen> {
       ),
       bodyChild: SingleChildScrollView(
         child: Column(
-        children: [
-           Center(
-            child: Text(
-              'Enter Security Pin',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+          children: [
+            Center(
+              child: Text(
+                'Enter Security Pin',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-           SizedBox(height: 20),
-          FittedBox(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(6, (index) {
-                return Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  decoration: BoxDecoration(
-                    color: lightGreenBg,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  width: 60,
-                  height: 60,
-                  child: Center(
-                    child: TextField(
-                      controller: controllers[index],
-                      focusNode: focusNodes[index],
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      maxLength: 1,
-                      onChanged: (value) => _onTextChanged(value, index),
-                      decoration: InputDecoration(
-                        counterText: "",
-                        // border: InputBorder.none,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                          borderSide: BorderSide(
-                            width: 2.5,
-                            color: primaryColor,
+            SizedBox(height: 20),
+            FittedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(6, (index) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: lightGreenBg,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    width: 60,
+                    height: 60,
+                    child: Center(
+                      child: TextField(
+                        controller: controllers[index],
+                        focusNode: focusNodes[index],
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        maxLength: 1,
+                        onChanged: (value) => _onTextChanged(value, index),
+                        decoration: InputDecoration(
+                          counterText: "",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: BorderSide(
+                              width: 2.5,
+                              color: primaryColor,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: BorderSide(
+                              width: 2.5,
+                              color: primaryColor,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                }),
+              ),
             ),
-          ),
-          SizedBox(height: 40),
-          PrimaryButton(
-            title: 'Accept',
-            color: primaryColor,
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => NewPasswordScreen()),
-              );
-            },
-          ),
-          SizedBox(height: 13),
-          PrimaryButton(title: 'Send Again', color: lightGreen, onTap: () {}),
-          SizedBox(height: 60),
-          Text('or sign up with'),
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  'assets/images/Facebook.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  'assets/images/Google.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          RichText(
-            text: TextSpan(
+            SizedBox(height: 40),
+            PrimaryButton(
+              title: 'Accept',
+              color: primaryColor,
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => NewPasswordScreen()),
+                );
+              },
+            ),
+            SizedBox(height: 13),
+            PrimaryButton(title: 'Send Again', color: lightGreen, onTap: () {}),
+            SizedBox(height: 60),
+            Text('or sign up with'),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextSpan(
-                  text: "Dont't have an account? ",
-                  style: TextStyle(color: Colors.black),
+                GestureDetector(
+                  onTap: () {},
+                  child: Image.asset(
+                    'assets/images/Facebook.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                WidgetSpan(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
-                      );
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: oceanBlue,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {},
+                  child: Image.asset(
+                    'assets/images/Google.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+            SizedBox(height: 10),
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Dont't have an account? ",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignUpScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: oceanBlue,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-      )
     );
   }
 }

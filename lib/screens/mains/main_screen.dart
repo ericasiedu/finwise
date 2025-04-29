@@ -41,6 +41,7 @@ class _MainScreenState extends State<MainScreen> {
     );
 
     return Scaffold(
+      backgroundColor: lightGreenBg,
       body: pages[selectedIndex],
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
@@ -64,11 +65,11 @@ class _MainScreenState extends State<MainScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildRoundedNavItem(Icons.home_outlined, 0),
-                _buildRoundedNavItem(Icons.analytics_outlined, 1),
-                _buildRoundedNavItem(Icons.business_outlined, 2),
-                _buildRoundedNavItem(Icons.category_outlined, 3),
-                _buildRoundedNavItem(Icons.person_2_outlined, 4),
+                _buildRoundedNavItem('home.png', 0),
+                _buildRoundedNavItem('analysis.png', 1),
+                _buildRoundedNavItem('transaction.png', 2),
+                _buildRoundedNavItem('category.png', 3),
+                _buildRoundedNavItem('profile.png', 4),
               ],
             ),
           ),
@@ -77,12 +78,14 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _buildRoundedNavItem(IconData icon, int index) {
+  Widget _buildRoundedNavItem(String icon, int index) {
     bool isSelected = selectedIndex == index;
     
     return GestureDetector(
       onTap: () => onChangeMenu(index),
       child: Container(
+        width: 53,
+        height: 53,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: isSelected ? primaryColor : Colors.transparent,
@@ -97,11 +100,7 @@ class _MainScreenState extends State<MainScreen> {
                 ]
               : null,
         ),
-        child: Icon(
-          icon,
-          color:  Colors.black,
-          size: 28,
-        ),
+        child: Image.asset('assets/images/$icon',fit: BoxFit.contain,),
       ),
     );
   }

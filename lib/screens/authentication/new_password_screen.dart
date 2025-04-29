@@ -1,4 +1,5 @@
-import 'package:finwise/screens/authentication/password_change_success_screen.dart';
+import 'package:finwise/screens/authentication/login_screen.dart';
+import 'package:finwise/screens/mains/success_screen.dart';
 import 'package:finwise/utils/color.dart';
 import 'package:finwise/utils/container_wrapper.dart';
 import 'package:finwise/utils/custom_input.dart';
@@ -63,7 +64,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PasswordChangeSuccessScreen(),
+                  builder: (context) => SuccessScreen(
+                    successMessage: 'Password Has Been \n Changed Successfully',
+                    nextPage: LoginScreen(),),
                 ),
               );
             },

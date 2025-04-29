@@ -40,17 +40,18 @@ class ContainerWrapper extends StatelessWidget {
       appBar:
           showAppBar
               ? AppBar(
+                toolbarHeight: 80,
                 backgroundColor: primaryColor,
                 scrolledUnderElevation: 0,
                 iconTheme: IconThemeData(color: Colors.white),
                 centerTitle: centerTitle,
                 automaticallyImplyLeading: leading == null,
                 leading: leading,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: primaryColor,
-                  statusBarIconBrightness: Brightness.light,
-                  statusBarBrightness: Brightness.dark,
-                ),
+                // systemOverlayStyle: SystemUiOverlayStyle(
+                //   statusBarColor: primaryColor,
+                //   statusBarIconBrightness: Brightness.light,
+                //   statusBarBrightness: Brightness.dark,
+                // ),
                 title:
                     centerTitle
                         ? Padding(
@@ -64,7 +65,7 @@ class ContainerWrapper extends StatelessWidget {
                           ),
                         )
                         : Padding(
-                          padding: const EdgeInsets.only(left: 10, top: 20),
+                          padding: const EdgeInsets.only(left: 10, top: 40,bottom: 20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [

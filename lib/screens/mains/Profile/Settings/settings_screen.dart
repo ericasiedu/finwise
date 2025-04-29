@@ -1,3 +1,4 @@
+import 'package:finwise/screens/mains/Profile/Settings/delete_account_screen.dart';
 import 'package:finwise/screens/mains/Profile/Settings/notification_settings.dart';
 import 'package:finwise/screens/mains/Profile/Settings/password_setting.dart';
 import 'package:finwise/screens/mains/notification_screen.dart';
@@ -58,7 +59,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               settingTitle: 'Delete Account',
               icon: Icons.person_2_outlined,
               onTap: () {
-                
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => DeleteAccountScreen()));
               },
             ),
             SizedBox(height: 17),
